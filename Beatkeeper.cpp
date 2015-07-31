@@ -46,7 +46,7 @@ Pattern::Pattern () {
 void Pattern::set(int whichpin, String p) {
   _led = whichpin;
   thepattern = p;
-  Serial.print("pattern set for _led at pin ");
+  Serial.print("pattern set for led at pin ");
   Serial.print(_led);
   Serial.print(": ");
   Serial.println(thepattern);
