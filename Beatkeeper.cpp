@@ -46,10 +46,10 @@ Pattern::Pattern () {
 void Pattern::set(int whichpin, String p) {
   _led = whichpin;
   thepattern = p;
-  Serial.print("pattern set for led at pin ");
-  Serial.print(_led);
-  Serial.print(": ");
-  Serial.println(thepattern);
+  /* Serial.print("pattern set for led at pin "); */
+  /* Serial.print(_led); */
+  /* Serial.print(": "); */
+  /* Serial.println(thepattern); */
 }
 
 String Pattern::print() {
@@ -57,13 +57,14 @@ String Pattern::print() {
 }
 
 void Pattern::advance() {
-  if (counter < thepattern.length()-1) counter ++;
+  if (counter < thepattern.length()-1) counter ++; // advance the pattern or restart
   else counter = 0;
 }
 
 void Pattern::display() {
   if (thepattern.charAt(counter) == '0') {
-    brightness = 255;
+    // reads what's at that position in the pattern and checks if it's 0
+    brightness = 255; // 255 for buckpucks
   }
   else brightness = 0;
   digitalWrite(_led, brightness);
